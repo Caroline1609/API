@@ -1,0 +1,17 @@
+# compose.yml
+services:
+  web:
+    build:
+      context: ./php.docker
+      args:
+        PHP_DOCKER_IMAGE_VERSION: 8.5.0RC4-apache-trixie
+    ports:
+      - target: 80
+        host_ip: 127.10.10.20
+        published: 80
+    volumes:
+      - type: bind
+        read_only: false
+        source: ./public/
+        target: /var/www/html
+ 
