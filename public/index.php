@@ -44,7 +44,7 @@ class bookmark implements jsonserializable
  {
  }
 
- public function jsonSerialize(): mixed
+ public function jsonSerialize(): mixed // : array
  {
   return [ 'URL' => $this->url
    , 'Title' => $this->title
@@ -67,7 +67,7 @@ class bookmarks implements bookmark_collection
  function all(): array
  {
   return [
-   new bookmark(title: 'toto'),
+   new bookmark(title: 'toto'), // exemple
    new bookmark,
    new bookmark,
    new bookmark,
