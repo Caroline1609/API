@@ -19,7 +19,7 @@ function main()
 
  array_shift($path);
  $entry_point = array_shift($path);
- if(!in_array($entry_point, [], true))
+ if(!in_array($entry_point,  ["bookmarks"], true))
  {
   header('HTTP/1.1 404 Not Found');
   die(json_encode([ 'error' // XXX security
@@ -27,8 +27,7 @@ function main()
   ], true));
  }
 
- var_dump($path);
- die();
+ die (json_encode(($path)));
 
  $source = new bookmarks;
  $all = $source->all();
